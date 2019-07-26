@@ -1,0 +1,332 @@
+﻿@model IEnumerable<ApplicationCore.Entities.BusinessEntities>
+
+@{
+    ViewBag.Title = "AgentDetail";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+
+
+    @Html.AntiForgeryToken()
+    <div class="single-pro-review-area mt-t-30 mg-b-15">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="product-payment-inner-st">
+                        <ul id="myTabedu1" class="tab-review-design">
+                            <li class="active"><a href="#description"> AGENT INFO</a></li>
+                            <li><a href="#reviews"> USERS</a></li>
+                        </ul>
+                        
+                        <div id="myTabContent" class="tab-content custom-product-edit">
+                            <div class="product-tab-list tab-pane fade active in" id="description">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="review-content-section">
+                                            <div id="dropzone1" class="pro-ad">
+                                              
+                                                @foreach (var item in Model)
+                                                {
+                                                    <div class="form-group-inner">
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                <label class="login2 pull-left pull-left-pro">ID/Code</label>
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                @Html.TextBox("Code", item.Code, new { @readonly = "readonly", @class = "form-control" })
+                                                                @Html.ValidationMessageFor(m=>item.Code, "", new { @class = "text-danger pull-right" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group-inner">
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                <label class="login2 pull-left pull-left-pro">Name</label>
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                @Html.TextBox("Name", item.Name, new { @class = "form-control" })
+                                                                @Html.ValidationMessageFor(m =>item.Name, "asdasdsa", new { @class = "text-danger pull-right" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group-inner">
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                <label class="login2 pull-left pull-left-pro">Markup Plan</label>
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                @Html.DropDownList("MarkupPlan", new List<SelectListItem>
+                                                           {
+                                                               new SelectListItem{ Text="HT Agent and Transaction above 15 Lac", Value = "1" },
+                                                               new SelectListItem{ Text="HT Agent and Transaction below 10 Lac", Value = "2" },
+                                                               new SelectListItem{ Text="HT Agent and Transaction between 10 to 15 Lac", Value = "3" }
+                                                           }
+                                                           , new { @class = "form-control" })
+
+                                                                @Html.ValidationMessageFor(m => item.MarkupPlan, "", new { @class = "text-danger pull-right" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group-inner">
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                <label class="login2 pull-left pull-left-pro">Email</label>
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                @Html.TextBox("Email", item.Email, new { @class = "form-control" })
+                                                                @Html.ValidationMessageFor(m => item.Email, "", new { @class = "text-danger pull-right" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group-inner">
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                <label class="login2 pull-left pull-left-pro">Mobile</label>
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                @Html.TextBox("Mobile", item.Mobile, new { @class = "form-control" })
+                                                                @Html.ValidationMessageFor(m => item.Mobile, "", new { @class = "text-danger pull-right" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group-inner">
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                <label class="login2 pull-left pull-left-pro">Phone</label>
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                @Html.TextBox("Phone", item.Phone, new { @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group-inner">
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                <label class="login2 pull-left pull-left-pro">Address</label>
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                @Html.TextBox("Address", item.Street, new { @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group-inner">
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                <label class="login2 pull-left pull-left-pro">City</label>
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                @Html.TextBox("City", item.City, new { @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group-inner">
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                <label class="login2 pull-left pull-left-pro">State</label>
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                @Html.TextBox("State", item.State, new { @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group-inner">
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                <label class="login2 pull-left pull-left-pro">IP/Post Code</label>
+                                                            </div>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                @Html.TextBox("Zip", item.Zip, new { @class = "form-control" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="sparkline12-graph">
+                                            <div class="basic-login-form-ad">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <div class="all-form-element-inner">
+                                                            <form action="#">
+                                                                @foreach (var item in Model)
+                                                                {
+                                                                    <div class="form-group-inner">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                                <label class="login2 pull-left pull-left-pro">Balance</label>
+                                                                            </div>
+                                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                                @Html.TextBox("Balance", item.Balance, new { @class = "form-control" })
+                                                                                @Html.ValidationMessageFor(m => item.Balance, "", new { @class = "text-danger pull-right" })
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group-inner">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                                <label class="login2 pull-left pull-left-pro">CurrentBalance</label>
+                                                                            </div>
+                                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                                @Html.TextBox("CurrentBalance", item.CurrentBalance, new { @class = "form-control" })
+                                                                                @Html.ValidationMessageFor(m => item.CurrentBalance, "", new { @class = "text-danger pull-right" })
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group-inner">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                                <label class="login2 pull-left pull-left-pro">Status</label>
+                                                                            </div>
+                                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                                @Html.TextBox("Status", item.Status, new { @class = "form-control" })
+                                                                                @Html.ValidationMessageFor(m => item.Status, "", new { @class = "text-danger pull-right" })
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                }
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <br />
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="payment-adress">
+                                            <button type="submit" id="update-button" class="btn btn-primary waves-effect waves-light">UPDATE</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="product-tab-list tab-pane fade" id="reviews">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="review-content-section">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <form id="acount-infor" action="#" class="acount-infor">
+                                                        <div class="devit-card-custom">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" name="email" placeholder="Email">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input name="phoneno" type="number" class="form-control" placeholder="Phone">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input name="password" type="password" class="form-control" placeholder="Password">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input name="confarmpassword" type="password" class="form-control" placeholder="Confirm Password">
+                                                            </div>
+                                                            <a href="#" class="btn btn-primary waves-effect waves-light">UPDATE</a>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(document).ready(function () {
+    $("#update-button").on('click', function () {
+        var Code = $("#Code").val();
+        var Name = $("#Name").val();
+        var MarkupPlan = $("#MarkupPlan").val();
+        var Email = $("#Email").val();
+
+        var Mobile = $("#Mobile").val();
+        var Phone = $("#Phone").val();
+        var Street = $("#Address").val();
+        var City = $("#City").val();
+
+        var State = $("#State").val();
+        var Zip = $("#Zip").val();
+        var Balance = $("#Balance").val();
+        var CurrentBalance = $("#CurrentBalance").val();
+
+        var Status = $("#Status").val();
+
+        $.ajax(
+            {
+                type: 'POST',
+                url: '@Url.Action("UpdateAgentInfo")',
+                datatype: JSON,
+                data:
+                {
+                    Code: Code,
+                    Name: Name,
+                    MarkupPlan: MarkupPlan,
+                    Email: Email,
+
+                    Mobile: Mobile,
+                    Phone: Phone,
+                    Street: Street,
+                    City: City,
+
+                    State: State,
+                    Zip: Zip,
+                    Balance: Balance,
+                    CurrentBalance: CurrentBalance,
+
+                    Status: Status
+                },
+                success: function (response) {
+                    if (response.Success == true) {
+                        alert(response.Message);
+                        event.preventDefault();
+                    }
+                    else {
+                        alert(response.Message);
+                    }
+                }
+            });
+        });
+    });
+
+    
+</script>
+
+

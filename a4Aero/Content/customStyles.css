@@ -1,0 +1,61 @@
+﻿ .directory-style {
+    font-size: small;
+}
+
+.back-button-previous {
+    background-color: #f1f1f1;
+    color: black;
+    padding: 8px 16px;
+    font-size: small;
+}
+
+    .back-button-previous:hover {
+        background-color: #ff6a00;
+        color: navajowhite;
+    }
+
+.back-button-round {
+    border-radius: 0%;
+}
+
+.back-button-position {
+    padding-top: 8px;
+}
+
+
+
+.edit-buttons {
+    color:#0094ff;
+}
+
+.delete-buttons {
+    color: #ed4a4a;
+}
+
+.actioin-gap {
+    margin-left: 10px;
+}
+
+
+.add-label {
+    color: #0094ff;
+}
+.add-label:hover {
+    color: #ff6a00;
+}
+
+.header-lebel {
+    font-size: 16px;
+}
+.special-td{
+    color:#0094ff;
+}
+
+
+.field-validation-valid {
+    display: none;
+}
+
+.validation-summary-valid {
+    display: none;
+}

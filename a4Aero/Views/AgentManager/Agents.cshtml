@@ -1,0 +1,195 @@
+﻿@model IList<ApplicationCore.Entities.BusinessEntities>
+@{
+    ViewBag.Title = "Agents";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+
+<div class="data-table-area mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sparkline13-list">
+                    <div class="sparkline13-hd">
+                        <div class="main-sparkline13-hd">
+
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                    <div class="sparkline10-list mt-b-30">
+
+                                        <div class="sparkline10-graph">
+                                            <div class="basic-login-form-ad">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <div class="basic-login-inner inline-basic-form">
+                                                            <form action="#">
+                                                                <div class="form-group-inner">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                            <input type="email" class="form-control basic-ele-mg-b-10 responsive-mg-b-10" placeholder="Code" />
+                                                                        </div>
+                                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                            <input type="password" class="form-control basic-ele-mg-b-10 responsive-mg-b-10" placeholder="Name" />
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                            <div class="login-btn-inner">
+                                                                                <div class="row">
+                                                                                    <div class="col-lg-6 col-md-5 col-sm-5 col-xs-12">
+                                                                                        <div class="login-horizental lg-hz-mg"><button class="btn btn-sm btn-primary login-submit-cs" type="submit"><span class="glyphicon glyphicon-search"></span></button></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <a href="../../AgentManager/AddAgentInfo" class="add-label login2 pull-left pull-left-pro">+ ADD AGENT</a>
+                        </div>
+                    </div>
+
+
+                    <div class="sparkline13-graph">
+                        <div class="datatable-dashv1-list custom-datatable-overright">
+                            <div id="toolbar">
+                                <select class="form-control dt-tb">
+                                    <option value="">Export Basic</option>
+                                    <option value="all">Export All</option>
+                                    <option value="selected">Export Selected</option>
+                                </select>
+                            </div>
+
+
+
+
+
+
+
+
+
+                            <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+                                   data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                                <thead>
+                                    <tr>
+                                        <th data-field="state" data-checkbox="true"></th>
+                                        <th data-field="date">JOINED ON</th>
+                                        <th data-field="code" data-editable="true">CODE</th>
+                                        <th data-field="name" data-editable="true">NAME</th>
+                                        <th data-field="markup" data-editable="true">MARKUP PLAN</th>
+                                        <th data-field="phone">MOBILE</th>
+                                        <th data-field="email" data-editable="true">EMAIL</th>
+                                        <th data-field="number" data-editable="true">BALANCE(BDT)</th>
+                                        <th data-field="action"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                @item.CreatedOnUtc
+                                            </td>
+                                            <td>
+                                                @item.Code
+                                            </td>
+                                            <td>
+                                                @item.Name
+                                            </td>
+                                            @if (item.MarkupPlan == 1)
+                                            {
+                                                <td>HT Agent and Transaction above 15 Lac</td>
+                                            }
+                                            else if (item.MarkupPlan == 2)
+                                            {
+                                                <td>HT Agent and Transaction below 10 Lac</td>
+
+                                            }
+                                            else
+                                            {
+                                                <td>HT Agent and Transaction between 10 to 15 Lac</td>
+                                            }
+
+                                            <td>
+                                                @item.Mobile
+                                            </td>
+                                            <td>
+                                                @item.Email
+                                            </td>
+                                            <td>
+                                                @item.Balance
+                                            </td>
+                                            <td class="edit-buttons">
+                                                @Html.ActionLink("Edit", "AgentDetail", new { code = @item.Code }, new { style = "color: #0094ff" })
+
+                                            </td>
+                                        </tr>
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+@*<script>
+        $(document).ready(function () {
+            $.ajax(
+                {
+                    type: 'GET',
+                    url: '@Url.Action("GetAgents")',
+                    datatype: JSON,
+                    //data:{},
+                    success: function (response) {
+                        if (response.Success == true) {
+
+                            alert(response.Message);
+                        }
+                        else {
+                            alert(response.Message);
+                        }
+                    }
+                });
+        });
+
+
+
+        //$(".edit").live('click', function () {
+        //    alert('you edit me!');
+        //});
+
+
+
+        //$(".delete").live('click', function () {
+        //    alert('you delete me!');
+        //});
+
+
+    </script>*@
+
