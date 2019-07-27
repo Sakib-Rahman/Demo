@@ -16,7 +16,7 @@ namespace a4Aero
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = " AgentManager", action = "Agents", id = UrlParameter.Optional }
+                defaults: new { controller = "AgentManager", action = "Agents", id = UrlParameter.Optional }
             );
         }
     }

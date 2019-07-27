@@ -510,7 +510,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1875</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1875/AgentManager/Agents</IISUrl>
+          <IISUrl>http://localhost:1875/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
